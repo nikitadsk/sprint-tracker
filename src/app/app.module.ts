@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatButtonModule, MatCardModule, MatIconModule, MatSidenavModule } from '@angular/material';
-import { MatListModule } from '@angular/material';
+import { MatListModule, MatDividerModule } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { UserService } from './user.service';
 import { UsersListComponent } from './users-list/users-list.component';
+import { DaysTableComponent } from './days-table/days-table.component';
+import { DayColumnComponent } from './day-column/day-column.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { UsersListComponent } from './users-list/users-list.component';
     HeaderComponent,
     UserCardComponent,
     UsersListComponent,
+    DaysTableComponent,
+    DayColumnComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +30,7 @@ import { UsersListComponent } from './users-list/users-list.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
+    MatDividerModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
