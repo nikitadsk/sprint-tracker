@@ -11,6 +11,7 @@ import { UserService } from './user.service';
 import { UsersListComponent } from './users-list/users-list.component';
 import { DaysTableComponent } from './days-table/days-table.component';
 import { DayColumnComponent } from './day-column/day-column.component';
+import { JobCardComponent } from './job-card/job-card.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { DayColumnComponent } from './day-column/day-column.component';
     UsersListComponent,
     DaysTableComponent,
     DayColumnComponent,
+    JobCardComponent,
   ],
   imports: [
     BrowserModule,

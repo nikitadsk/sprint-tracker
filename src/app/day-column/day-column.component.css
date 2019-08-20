@@ -1,16 +1,18 @@
 .day-column {
-  width: 200px;
+  width: 220px;
   height: 100%;
   padding: 0;
   align-items: center;
 }
 
 .day-content {
-  height: 86%;
+  height: 85%;
   margin: 0;
+  overflow: auto;
 }
 
 .btn-job-add, .day-date {
   text-align: center;
   padding: 5px 0;
 }
+

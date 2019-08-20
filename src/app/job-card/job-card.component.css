@@ -1,0 +1,41 @@
+.job-card {
+  width: 190px;
+  min-height: 50px;
+  padding: 0;
+  margin-top: 5px;
+  margin-left: 5px;
+  background-color: rgb(251, 255, 0);
+}
+
+.job-card:hover {
+  background-color: rgb(206, 209, 25);
+  cursor: pointer;
+}
+
+.job-content-block {
+  margin: 0;
+  margin-left: 5px;
+}
+
+.job-time-block {
+  margin: 5px;
+  display: flex;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.job-type {
+  font-size: 14px;
+}
+
+.job-header-block {
+  display: flex;
+  margin: 5px;
+}
+
+.job-name {
+  margin: 0 -27px;
+  padding-right: 5px;
+}
