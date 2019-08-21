@@ -1,9 +1,3 @@
-<div>
-  <app-day-column></app-day-column>
-  <app-day-column></app-day-column>
-  <app-day-column></app-day-column>
-  <app-day-column></app-day-column>
-  <app-day-column></app-day-column>
-  <app-day-column></app-day-column>
-  <app-day-column></app-day-column>
+<div *ngIf="days">
+  <app-day-column *ngFor="let day of days" [day]="day" [id]="id"></app-day-column>
 </div>

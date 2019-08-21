@@ -1,12 +1,12 @@
 <mat-card class="day-column">
   <div class="day-date">
-    <span>02.08</span>
+    <span>{{getDate()}}</span>
   </div>
 
   <mat-divider></mat-divider>
 
-  <mat-card-content class="day-content">
-    <app-job-card></app-job-card>
+  <mat-card-content class="day-content" *ngIf="userJobs">
+    <app-job-card *ngFor="let job of userJobs" [job]="job"></app-job-card>
   </mat-card-content>
 
   <mat-divider></mat-divider>

@@ -11,3 +11,11 @@
   background-color: rgb(202, 193, 193);
   cursor: pointer;
 }
+
+a {
+  text-decoration: none;
+}
+
+.active .user-card-block {
+  background-color: rgb(202, 193, 193);
+}

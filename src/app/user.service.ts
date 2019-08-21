@@ -7,8 +7,8 @@ import { IUser } from './iuser';
 export class UserService {
 
   private users: IUser[] = [
-    { name: 'Nikita Ershov', position: 'Developer' },
-    { name: 'Ivan Timokhin', position: 'Developer' },
+    { id: 1, name: 'Nikita Ershov', position: 'Developer' },
+    { id: 2, name: 'Ivan Timokhin', position: 'Developer' },
   ];
 
   constructor() { }

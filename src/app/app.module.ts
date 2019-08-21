@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +14,12 @@ import { DaysTableComponent } from './days-table/days-table.component';
 import { DayColumnComponent } from './day-column/day-column.component';
 import { JobCardComponent } from './job-card/job-card.component';
 import { AddJobCardDialogComponent } from './add-job-card-dialog/add-job-card-dialog.component';
+import { DayService } from './day.service';
+
+const appRoutes: Routes = [
+  { path: 'developers/:id', component: DaysTableComponent },
+  { path: '**', redirectTo: '' }
+];
 
 @NgModule({
   declarations: [
@@ -27,6 +34,7 @@ import { AddJobCardDialogComponent } from './add-job-card-dialog/add-job-card-di
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
@@ -38,7 +46,7 @@ import { AddJobCardDialogComponent } from './add-job-card-dialog/add-job-card-di
     MatDialogModule,
     MatInputModule,
   ],
-  providers: [UserService],
+  providers: [UserService, DayService],
   bootstrap: [AppComponent],
   entryComponents: [AddJobCardDialogComponent],
 })

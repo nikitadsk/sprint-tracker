@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DayService } from '../day.service';
+import { IDay } from '../iday';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-days-table',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DaysTableComponent implements OnInit {
 
-  constructor() { }
+  public days: IDay[];
+  public id: number;
 
-  ngOnInit() {
+  constructor(private dayService: DayService, private activateRoute: ActivatedRoute) {
+    this.activateRoute.params.subscribe(params => this.id = Number(params.id));
   }
 
+  ngOnInit() {
+    this.dayService.getDays().subscribe(days => this.days = days);
+  }
 }
