@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IUser } from './iuser';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,15 @@ export class UserService {
 
   constructor() { }
 
-  public getUsers(): IUser[] {
-    return this.users;
+  public getUsers(): Observable<IUser[]> {
+    return of(this.users);
+  }
+
+  public addUser(name: string, position: string): void {
+    this.users.push({
+      id: this.users ? this.users[this.users.length - 1].id + 1 : 1,
+      name,
+      position
+    });
   }
 }

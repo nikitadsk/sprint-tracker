@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatButtonModule, MatCardModule, MatIconModule, MatSidenavModule } from '@angular/material';
-import { MatListModule, MatDividerModule, MatDialogModule, MatInputModule } from '@angular/material';
+import { MatListModule, MatDividerModule, MatDialogModule, MatInputModule, MatSlideToggleModule } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { UserService } from './user.service';
@@ -15,6 +15,7 @@ import { DayColumnComponent } from './day-column/day-column.component';
 import { JobCardComponent } from './job-card/job-card.component';
 import { AddJobCardDialogComponent } from './add-job-card-dialog/add-job-card-dialog.component';
 import { DayService } from './day.service';
+import { AddUserDialogComponent } from './add-user-dialog/add-user-dialog.component';
 
 const appRoutes: Routes = [
   { path: 'developers/:id', component: DaysTableComponent },
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
     DayColumnComponent,
     JobCardComponent,
     AddJobCardDialogComponent,
+    AddUserDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,9 +47,10 @@ const appRoutes: Routes = [
     MatDividerModule,
     MatDialogModule,
     MatInputModule,
+    MatSlideToggleModule,
   ],
   providers: [UserService, DayService],
   bootstrap: [AppComponent],
-  entryComponents: [AddJobCardDialogComponent],
+  entryComponents: [AddJobCardDialogComponent, AddUserDialogComponent],
 })
 export class AppModule { }

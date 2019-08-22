@@ -1,0 +1,12 @@
+<div mat-dialog-content class="add-dialog">
+  <mat-form-field>
+    <input matInput placeholder="Введите имя человека" #userName>
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput placeholder="Введите должность" #userPosition>
+  </mat-form-field><br>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="addUser(userName.value, userPosition.value)">Ok</button>
+</div>

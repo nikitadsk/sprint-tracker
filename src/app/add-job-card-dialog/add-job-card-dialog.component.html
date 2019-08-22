@@ -1,18 +1,16 @@
-<div mat-dialog-content>
+<div mat-dialog-content class="add-dialog">
   <mat-form-field>
-    <input matInput placeholder="Введите название работы">
+    <input matInput placeholder="Введите название работы" #jobName>
+  </mat-form-field><br>
+  <mat-slide-toggle #isSlider>Проблема?</mat-slide-toggle>
+  <mat-form-field>
+    <input matInput type="number" placeholder="Введите количество времени в часах" #time>
   </mat-form-field><br>
   <mat-form-field>
-    <input matInput placeholder="Введите тип работы">
-  </mat-form-field><br>
-  <mat-form-field>
-    <input matInput placeholder="Введите требуемое количество врмени в часах">
-  </mat-form-field><br>
-  <mat-form-field>
-    <textarea matInput placeholder="Опишите суть работы"></textarea>
+    <textarea matInput placeholder="Опишите суть работы" #jobDescription></textarea>
   </mat-form-field><br>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button (click)="onNoClick()">Ok</button>
+  <button mat-button (click)="addJob(jobName.value, jobDescription.value, time.value, isSlider.checked)">Ok</button>
 </div>
