@@ -11,6 +11,8 @@ export class JobCardComponent implements OnInit {
 
   @Input() job: IJob;
 
+  public isEdited: boolean = false;
+
   constructor() { }
 
   ngOnInit() {

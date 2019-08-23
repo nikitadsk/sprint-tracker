@@ -32,10 +32,11 @@
 
 .job-header-block {
   display: flex;
-  margin: 5px;
+  margin: 0;
 }
 
 .job-name {
   margin: 0 -27px;
+  margin-right: 0;
   padding-right: 5px;
 }

@@ -5,6 +5,7 @@
   <mat-form-field>
     <input matInput placeholder="Введите должность" #userPosition>
   </mat-form-field><br>
+  <span id="error-text" *ngIf="isError">Не все поля заполнены</span>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>

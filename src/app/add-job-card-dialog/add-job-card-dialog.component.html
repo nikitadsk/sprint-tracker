@@ -9,6 +9,7 @@
   <mat-form-field>
     <textarea matInput placeholder="Опишите суть работы" #jobDescription></textarea>
   </mat-form-field><br>
+  <span id="error-text" *ngIf="isError">Не все поля заполнены</span>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>

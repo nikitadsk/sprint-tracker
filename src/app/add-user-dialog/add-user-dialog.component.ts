@@ -9,6 +9,8 @@ import { UserService } from '../user.service';
 })
 export class AddUserDialogComponent implements OnInit {
 
+  public isError: boolean = false;
+
   constructor(public dialogRef: MatDialogRef<AddUserDialogComponent>, private userService: UserService) {
   }
 
@@ -18,8 +20,12 @@ export class AddUserDialogComponent implements OnInit {
 
 
   addUser(userName: string, userPosition: string): void {
-    this.userService.addUser(userName, userPosition);
-    this.onNoClick();
+    if (userName && userPosition) {
+      this.userService.addUser(userName, userPosition);
+      this.onNoClick();
+    } else {
+      this.isError = true;
+    }
   }
 
   ngOnInit() {
