@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { DayService } from '../day.service';
 import { JobType } from '../job-type.enum';
@@ -14,7 +14,7 @@ export class AddJobCardDialogComponent implements OnInit {
 
   @Input() parent: DayColumnComponent;
 
-  public isError: boolean = false;
+  public isError = false;
 
   ngOnInit() {
   }

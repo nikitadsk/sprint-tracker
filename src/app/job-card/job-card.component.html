@@ -1,15 +1,15 @@
-<mat-card class="job-card" (dblclick)="isEdited = !isEdited">
+<mat-card class="job-card" (dblclick)="editJobCard(name.innerHTML, description.innerHTML, time.innerHTML)">
   <mat-card-header class="job-header-block">
-    <span class="job-name" [contentEditable]="isEdited">{{job.jobName}}</span>
+    <span class="job-name" [contentEditable]="isEdited" #name>{{job.jobName}}</span>
   </mat-card-header>
   <mat-divider></mat-divider>
   <mat-card-content class="job-content-block">
-    <span class="job-description" [contentEditable]="isEdited">{{job.description}}</span>
+    <span class="job-description" [contentEditable]="isEdited" #description>{{job.description}}</span>
   </mat-card-content>
   <mat-divider></mat-divider>
   <mat-card-footer class="job-time-block">
     <span class="job-type">{{getJobType()}}</span>
     <span class="example-spacer"></span>
-    <span class="job-time">Время: <span [contentEditable]="isEdited">{{job.time}}h</span></span>
+    <span class="job-time">Время: <span [contentEditable]="isEdited" #time>{{job.time}}</span>h</span>
   </mat-card-footer>
 </mat-card>

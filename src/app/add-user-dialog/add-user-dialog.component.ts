@@ -9,7 +9,7 @@ import { UserService } from '../user.service';
 })
 export class AddUserDialogComponent implements OnInit {
 
-  public isError: boolean = false;
+  public isError = false;
 
   constructor(public dialogRef: MatDialogRef<AddUserDialogComponent>, private userService: UserService) {
   }
