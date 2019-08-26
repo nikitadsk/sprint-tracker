@@ -88,6 +88,23 @@ export class DayService {
     }
   }
 
+  public editJobInfo(date: Date, jobId: number, newJobName: string, newJobDescription: string, newTime: number) {
+    const dayIndex = this.getDayIndexByDate(date);
+    const jobIndex = this.getJobIndexByJobId(dayIndex, jobId);
+
+    this.days[dayIndex].jobs[jobIndex].jobName = newJobName;
+    this.days[dayIndex].jobs[jobIndex].description = newJobDescription;
+    this.days[dayIndex].jobs[jobIndex].time = newTime;
+
+  }
+
+  public deleteJob(date: Date, jobId: number): void {
+    const dayIndex = this.getDayIndexByDate(date);
+    const jobIndex = this.getJobIndexByJobId(dayIndex, jobId);
+
+    this.days[dayIndex].jobs.splice(jobIndex, 1);
+  }
+
   public getJobsByUserId(id: number, date: Date): IJob[] | null {
     const index = this.getDayIndexByDate(date);
     let result = null;
@@ -118,16 +135,6 @@ export class DayService {
     });
 
     return index;
-  }
-
-  public editJobInfo(date: Date, jobId: number, newJobName: string, newJobDescription: string, newTime: number) {
-    const dayIndex = this.getDayIndexByDate(date);
-    const jobIndex = this.getJobIndexByJobId(dayIndex, jobId);
-
-    this.days[dayIndex].jobs[jobIndex].jobName = newJobName;
-    this.days[dayIndex].jobs[jobIndex].description = newJobDescription;
-    this.days[dayIndex].jobs[jobIndex].time = newTime;
-
   }
 
 }

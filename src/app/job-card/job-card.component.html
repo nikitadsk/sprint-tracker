@@ -1,7 +1,7 @@
 <mat-card class="job-card" (dblclick)="editJobCard(name.innerHTML, description.innerHTML, time.innerHTML)">
-  <mat-card-header class="job-header-block">
-    <span class="job-name" [contentEditable]="isEdited" #name>{{job.jobName}}</span>
-  </mat-card-header>
+  <span class="delete-btn" (click)="deleteJobCard()">x</span>
+  <span class="example-spacer"></span>
+  <span class="job-name" [contentEditable]="isEdited" #name>{{job.jobName}}</span>
   <mat-divider></mat-divider>
   <mat-card-content class="job-content-block">
     <span class="job-description" [contentEditable]="isEdited" #description>{{job.description}}</span>

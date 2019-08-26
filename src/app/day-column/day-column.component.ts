@@ -21,7 +21,7 @@ export class DayColumnComponent implements OnInit, OnChanges {
 
   }
 
-  updateColumn() {
+  updateColumn(): void {
     this.userJobs = this.dayService.getJobsByUserId(this.id, this.day.date);
   }
 

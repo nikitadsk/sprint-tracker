@@ -32,11 +32,27 @@
 
 .job-header-block {
   display: flex;
-  margin: 0;
+  margin: 2px;
+
+}
+
+.delete-btn, .job-name {
+  margin-left: 5px;
 }
 
 .job-name {
-  margin: 0 -27px;
+  /* margin: 0 -27px; */
   margin-right: 0;
   padding-right: 5px;
+  display: block;
+  max-width: 166px;
+}
+
+.mat-card-header-text {
+  margin: 0 2px;
+}
+
+.delete-btn:hover {
+  color: red;
+  cursor: pointer;
 }
