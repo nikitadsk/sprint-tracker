@@ -14,8 +14,6 @@ export class AddJobCardDialogComponent implements OnInit {
 
   @Input() parent: DayColumnComponent;
 
-  public isError = false;
-
   ngOnInit() {
   }
 
@@ -28,20 +26,16 @@ export class AddJobCardDialogComponent implements OnInit {
 
 
   addJob(jobName: string, jobDescription: string, time: number, isProblem: boolean): void {
-    if (jobName && jobDescription && time) {
-      this.dayService.addJob(
-        this.parent.day.date,
-        this.parent.id,
-        jobName,
-        jobDescription,
-        isProblem ? JobType.Problem : JobType.Fulfill,
-        time
-      );
-      this.parent.updateColumn();
-      this.onNoClick();
-    } else {
-      this.isError = true;
-    }
+    this.dayService.addJob(
+      this.parent.day.date,
+      this.parent.id,
+      jobName,
+      jobDescription,
+      isProblem ? JobType.Problem : JobType.Fulfill,
+      time
+    );
+    this.parent.updateColumn();
+    this.onNoClick();
   }
 
 }
