@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddJobCardDialogComponent } from '../add-job-card-dialog/add-job-card-dialog.component';
 import { IDay } from '../iday';
 import { IJob } from '../ijob';
-import { DayService } from '../day.service';
+import { JobService } from '../job.service';
 
 @Component({
   selector: 'app-day-column',
@@ -13,24 +13,24 @@ import { DayService } from '../day.service';
 export class DayColumnComponent implements OnInit, OnChanges {
 
   @Input() day: IDay;
-  @Input() id: number;
+  @Input() userId: number;
 
-  public userJobs: IJob[];
+  public jobs: IJob[];
 
-  constructor(public dialog: MatDialog, private dayService: DayService) {
+  constructor(public dialog: MatDialog, private jobService: JobService) {
 
   }
 
-  updateColumn(): void {
-    this.userJobs = this.dayService.getJobsByUserId(this.id, this.day.date);
-  }
-
-  ngOnInit(): void {
+  ngOnChanges() {
     this.updateColumn();
   }
 
-  ngOnChanges(): void {
+  ngOnInit() {
     this.updateColumn();
+  }
+
+  updateColumn() {
+    this.jobs = this.jobService.getJobs(this.day.dayId, this.userId);
   }
 
   openDialog(): void {

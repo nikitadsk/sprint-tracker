@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { DayService } from '../day.service';
+import { JobService } from '../job.service';
 import { JobType } from '../job-type.enum';
 import { DayColumnComponent } from '../day-column/day-column.component';
 
@@ -17,7 +17,7 @@ export class AddJobCardDialogComponent implements OnInit {
   ngOnInit() {
   }
 
-  constructor(public dialogRef: MatDialogRef<AddJobCardDialogComponent>, private dayService: DayService) {
+  constructor(public dialogRef: MatDialogRef<AddJobCardDialogComponent>, private jobService: JobService) {
   }
 
   onNoClick(): void {
@@ -26,9 +26,9 @@ export class AddJobCardDialogComponent implements OnInit {
 
 
   addJob(jobName: string, jobDescription: string, time: number, isProblem: boolean): void {
-    this.dayService.addJob(
-      this.parent.day.date,
-      this.parent.id,
+    this.jobService.addJob(
+      this.parent.day.dayId,
+      this.parent.userId,
       jobName,
       jobDescription,
       isProblem ? JobType.Problem : JobType.Fulfill,

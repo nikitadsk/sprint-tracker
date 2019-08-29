@@ -15,6 +15,7 @@ import { DayColumnComponent } from './day-column/day-column.component';
 import { JobCardComponent } from './job-card/job-card.component';
 import { AddJobCardDialogComponent } from './add-job-card-dialog/add-job-card-dialog.component';
 import { DayService } from './day.service';
+import { JobService } from './job.service';
 import { AddUserDialogComponent } from './add-user-dialog/add-user-dialog.component';
 
 const appRoutes: Routes = [
@@ -49,7 +50,7 @@ const appRoutes: Routes = [
     MatInputModule,
     MatSlideToggleModule,
   ],
-  providers: [UserService, DayService],
+  providers: [UserService, DayService, JobService],
   bootstrap: [AppComponent],
   entryComponents: [AddJobCardDialogComponent, AddUserDialogComponent],
 })

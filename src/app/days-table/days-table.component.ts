@@ -11,10 +11,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DaysTableComponent implements OnInit {
 
   public days: IDay[];
-  public id: number;
+  public userId: number;
 
   constructor(private dayService: DayService, private activateRoute: ActivatedRoute) {
-    this.activateRoute.params.subscribe(params => this.id = Number(params.id));
+    this.activateRoute.params.subscribe(params => this.userId = Number(params.id));
   }
 
   ngOnInit() {
