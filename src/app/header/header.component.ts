@@ -10,12 +10,12 @@ import { ProjectService } from '../project.service';
 
 export class HeaderComponent implements OnInit {
 
-  public title: string = 'Sprint Tracker';
+  public title = 'Sprint Tracker';
   public projects: IProject[];
 
   constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
-  	this.projectService.getProjects().subscribe(projects => this.projects = projects);
+    this.projectService.getProjects().subscribe(projects => this.projects = projects);
   }
 }

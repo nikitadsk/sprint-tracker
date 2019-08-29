@@ -23,12 +23,12 @@ export class UsersListComponent implements OnInit {
     this.route.params
       .pipe(pluck('projectId'))
       .subscribe(projectId => {
-        this.users = this.userService.getUsers(Number(projectId))
+        this.users = this.userService.getUsers(Number(projectId));
       });
   }
 
   updateUsersList() {
-    this.users = this.userService.getUsers(Number(this.projectId))
+    this.users = this.userService.getUsers(Number(this.projectId));
   }
 
   openDialog(): void {

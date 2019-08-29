@@ -11,7 +11,7 @@ export class ContentBlockComponent implements OnInit {
 
   public projectId: number;
 
-	constructor(private userService: UserService, private activateRoute: ActivatedRoute) {
+  constructor(private userService: UserService, private activateRoute: ActivatedRoute) {
     this.activateRoute.params.subscribe(params => this.projectId = Number(params.projectId));
   }
 
