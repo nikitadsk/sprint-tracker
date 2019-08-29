@@ -1,6 +1,5 @@
 <mat-toolbar color="primary">
   <span>{{title}}</span>
   <span class="example-spacer"></span>
-  <button mat-raised-button color="link">button1</button>
-  <button mat-raised-button color="link">button2</button>
+  <a *ngFor="let project of projects" [routerLink]="['/projects', project.projectId]"><button mat-raised-button color="link">{{project.projectName}}</button></a>
 </mat-toolbar>

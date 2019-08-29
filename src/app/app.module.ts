@@ -16,10 +16,16 @@ import { JobCardComponent } from './job-card/job-card.component';
 import { AddJobCardDialogComponent } from './add-job-card-dialog/add-job-card-dialog.component';
 import { DayService } from './day.service';
 import { JobService } from './job.service';
+import { ProjectService } from './project.service';
 import { AddUserDialogComponent } from './add-user-dialog/add-user-dialog.component';
+import { ContentBlockComponent } from './content-block/content-block.component';
+
+const dayRoutes: Routes = [
+  { path: 'developers/:id', component: DaysTableComponent },
+];
 
 const appRoutes: Routes = [
-  { path: 'developers/:id', component: DaysTableComponent },
+  { path: 'projects/:projectId', component: ContentBlockComponent, children: dayRoutes },
   { path: '**', redirectTo: '' }
 ];
 
@@ -34,6 +40,7 @@ const appRoutes: Routes = [
     JobCardComponent,
     AddJobCardDialogComponent,
     AddUserDialogComponent,
+    ContentBlockComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +57,7 @@ const appRoutes: Routes = [
     MatInputModule,
     MatSlideToggleModule,
   ],
-  providers: [UserService, DayService, JobService],
+  providers: [UserService, DayService, JobService, ProjectService],
   bootstrap: [AppComponent],
   entryComponents: [AddJobCardDialogComponent, AddUserDialogComponent],
 })

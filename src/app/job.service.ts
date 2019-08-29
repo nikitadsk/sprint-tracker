@@ -59,18 +59,32 @@ export class JobService {
   }
 
   public editJob(jobId: number, newJobName: string, newJobDescription: string, newTime: number): void {
-    this.jobs[jobId - 1] = {
-      dayId: this.jobs[jobId - 1].dayId,
-      userId: this.jobs[jobId - 1].userId,
-      jobId: this.jobs[jobId - 1].jobId,
+    const index = this.getJobIndex(jobId);
+    this.jobs[index] = {
+      dayId: this.jobs[index].dayId,
+      userId: this.jobs[index].userId,
+      jobId: this.jobs[index].jobId,
       jobName: newJobName,
       description: newJobDescription,
-      jobType: this.jobs[jobId - 1].jobType,
+      jobType: this.jobs[index].jobType,
       time: newTime,
     };
   }
 
   public deleteJob(jobId: number): void {
-    this.jobs.splice(jobId - 1, 1);
+    const index = this.getJobIndex(jobId);
+    this.jobs.splice(index, 1);
+  }
+
+  private getJobIndex(jobId): number {
+    let resultIndex = -1;
+
+    this.jobs.forEach((job, index) => {
+      if (job.jobId === jobId) {
+        resultIndex = index;
+      }
+    });
+
+    return resultIndex;
   }
 }
