@@ -19,7 +19,7 @@ export class JobService {
       time: 2,
     },
     {
-      dayId: 1,
+      dayId: 3,
       userId: 2,
       jobId: 2,
       jobName: 'Создать компонент таблицы дней',

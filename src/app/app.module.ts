@@ -4,8 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatIconModule, MatSidenavModule } from '@angular/material';
-import { MatListModule, MatDividerModule, MatDialogModule, MatInputModule, MatSlideToggleModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatIconModule, MatSidenavModule, MatNativeDateModule } from '@angular/material';
+import { MatListModule, MatDividerModule, MatDialogModule, MatInputModule, MatDatepickerModule } from '@angular/material';
+import { MatSlideToggleModule }from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { UserService } from './user.service';
@@ -19,6 +20,7 @@ import { JobService } from './job.service';
 import { ProjectService } from './project.service';
 import { AddUserDialogComponent } from './add-user-dialog/add-user-dialog.component';
 import { ContentBlockComponent } from './content-block/content-block.component';
+import { AddDayDialogComponent } from './add-day-dialog/add-day-dialog.component';
 
 const dayRoutes: Routes = [
   { path: 'developers/:id', component: DaysTableComponent },
@@ -41,6 +43,7 @@ const appRoutes: Routes = [
     AddJobCardDialogComponent,
     AddUserDialogComponent,
     ContentBlockComponent,
+    AddDayDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,9 +59,11 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatInputModule,
     MatSlideToggleModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [UserService, DayService, JobService, ProjectService],
   bootstrap: [AppComponent],
-  entryComponents: [AddJobCardDialogComponent, AddUserDialogComponent],
+  entryComponents: [AddJobCardDialogComponent, AddUserDialogComponent, AddDayDialogComponent],
 })
 export class AppModule { }

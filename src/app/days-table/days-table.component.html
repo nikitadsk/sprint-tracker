@@ -1,3 +1,4 @@
 <div *ngIf="days">
   <app-day-column *ngFor="let day of days" [day]="day" [userId]="userId"></app-day-column>
+  <button mat-raised-button color="link" (click)="openDialog()" class="add-day-btn">+</button>
 </div>

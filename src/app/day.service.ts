@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IDay } from './iday';
-import { IJob } from './ijob';
 import { JobType } from './job-type.enum';
-import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +21,7 @@ export class DayService {
     {
       dayId: 3,
       date: new Date(2019, 8, 21),
-      projectId: 1,
+      projectId: 2,
     },
     {
       dayId: 4,
@@ -40,8 +38,16 @@ export class DayService {
   constructor() {
   }
 
-  public getDays(): Observable<IDay[]> {
-    return of(this.days);
+  public getDays(projectId): IDay[] {
+    return this.days.filter(day => day.projectId === projectId).sort();
+  }
+
+  public addDay(day: number, month: number, year: number, projectId: number): void {
+    this.days.push({
+      dayId: this.days[this.days.length - 1].dayId + 1,
+      date: new Date(year, month, day),
+      projectId
+    });
   }
 
 }

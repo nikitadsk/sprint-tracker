@@ -18,12 +18,6 @@ export class UserService {
   }
 
   public addUser(name: string, position: string, projectId: number): void {
-    console.log({
-      id: this.users ? this.users[this.users.length - 1].id + 1 : 1,
-      name,
-      position,
-      projectId,
-    });
     this.users.push({
       id: this.users ? this.users[this.users.length - 1].id + 1 : 1,
       name,
