@@ -1,4 +1,4 @@
-<ul>
+<ul *ngIf="users">
   <li *ngFor="let user of users">
     <app-user-card [user]="user"></app-user-card>
   </li>

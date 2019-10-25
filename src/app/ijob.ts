@@ -1,8 +1,9 @@
 import { JobType } from './job-type.enum';
 
 export interface IJob {
-  jobId: number;
+  dayId: number;
   userId: number;
+  jobId: number;
   jobName: string;
   description: string;
   jobType: JobType;

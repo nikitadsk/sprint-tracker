@@ -7,6 +7,10 @@
   margin-left: 30px;
 }
 
+.user-card-block {
+	width: 250px;
+}
+
 .user-card-block:hover {
   background-color: rgb(202, 193, 193);
   cursor: pointer;

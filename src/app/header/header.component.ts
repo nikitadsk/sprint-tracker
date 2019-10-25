@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IProject } from '../iproject';
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
   public title = 'Sprint Tracker';
+  public projects: IProject[];
 
-  constructor() { }
+  constructor(private projectService: ProjectService) { }
+
+  ngOnInit() {
+    this.projectService.getProjects().subscribe(projects => this.projects = projects);
+  }
 }

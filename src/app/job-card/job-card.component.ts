@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IJob } from '../ijob';
 import { JobType } from '../job-type.enum';
-import { DayService } from '../day.service';
+import { JobService } from '../job.service';
 
 @Component({
   selector: 'app-job-card',
@@ -11,13 +11,12 @@ import { DayService } from '../day.service';
 export class JobCardComponent implements OnInit {
 
   @Input() job: IJob;
-  @Input() date: Date;
 
-  @Output() updateInfo = new EventEmitter<void>();
+  @Output() updateColumn = new EventEmitter<void>();
 
   public isEdited = false;
 
-  constructor(private dayService: DayService) { }
+  constructor(private jobService: JobService) { }
 
   ngOnInit() {
   }
@@ -28,14 +27,14 @@ export class JobCardComponent implements OnInit {
 
   editJobCard(newJobName: string, newJobDescription: string, newTime: number): void {
     if (this.isEdited) {
-      this.dayService.editJobInfo(this.date, this.job.jobId, newJobName, newJobDescription, Number(newTime));
+      this.jobService.editJob(this.job.jobId, newJobName, newJobDescription, Number(newTime));
     }
     this.isEdited = !this.isEdited;
   }
 
   deleteJobCard(): void {
-    this.dayService.deleteJob(this.date, this.job.jobId);
-    this.updateInfo.emit();
+    this.jobService.deleteJob(this.job.jobId);
+    this.updateColumn.emit();
   }
 
 }

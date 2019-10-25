@@ -1,6 +1,5 @@
-import { IJob } from './ijob';
-
 export interface IDay {
+  dayId: number;
   date: Date;
-  jobs: IJob[];
+  projectId: number;
 }

@@ -1,0 +1,11 @@
+<div mat-dialog-content class="add-dialog">
+  <mat-form-field>
+    <input matInput [matDatepicker]="dp3" placeholder="Дата" disabled #date>
+    <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="addDay(date.value)" [disabled]="!date.value">Ok</button>
+</div>
